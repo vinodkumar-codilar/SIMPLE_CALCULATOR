@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="index1.css">
+</head>
+
+<body class="body">
+    <div class="main_1">
+         
+    <div class="main">
+        <div class="text1">
+           <div class="text_div1">
+            <h1 class="header1">Calc</h1>
+           </div>
+           <div class="text_div2">
+            
+                <div class="text_div2_buttons">
+                    <button class="button1">1</button>
+                    <button class="button2">2</button>
+                    <button class="button3">3</button>
+                </div>
+              
+               <div class="a">
+
+                   <div class="text_div2_heading">
+                <h3>Theme</h3>
+                   </div>
+                   <div class="text_div2_div1">
+                       <input type="range" max="3" min="1" value="1" class="last_one" onchange="rangebar()" >
+                   </div>
+               </div>
+              
+           </div>
+            
+        </div>
+        <div class="row1" id="display_bar">
+            <input type="text" id="displaybar"  class="displaybar2">
+        </div>
+        <div class="input_buttons">
+            <div class="row2_col1 ">
+                <button type="button"class= "input_buttons_1" onclick="display(7)">7</button>
+            </div>
+            <div class="row2_col2">
+                <button type="button"class= "input_buttons_1"onclick="display(8)">8</button>
+            </div>
+            <div class="row2_col3 ">
+                <button type="button"class= "input_buttons_1"onclick="display(9)">9</button>
+            </div>
+            <div class="row2_col4 one ">
+                <button type="button"class= "input_buttons_2">del</button>
+            </div>
+            <div class="row3_col1 ">
+                <button type="button" class= "input_buttons_1"onclick="display(4)">4</button>
+            </div>
+            <div class="row3_col2">
+                <button type="button"class= "input_buttons_1"onclick="display(5)">5</button>
+            </div>
+            <div class="row3_col3 ">
+                <button type="button"class= "input_buttons_1"onclick="display(6)">6</button>
+            </div>
+            <div class="row3_col4 ">
+                <button type="button" class="input_buttons_1" onclick="display('+')">+</button>
+            </div>
+            <div class="row4_col1 ">
+                <button type="button"class="input_buttons_1"onclick="display(1)">1</button>
+            </div>
+            <div class="row4_col2 ">
+                <button type="button"class="input_buttons_1"onclick="display(2)">2</button>
+            </div>
+            <div class="row4_col3 ">
+                <button type="button"class="input_buttons_1"onclick="display(3)">3</button>
+            </div>
+            <div class="row4_col4">
+                <button type="button"class="input_buttons_1"onclick="display('-')">-</button>
+            </div>
+            <div class="row5_col1 ">
+                <button type="button"class="input_buttons_1"onclick="display('.')">.</button>
+            </div>
+            <div class="row5_col2 ">
+                <button type="button"class="input_buttons_1"onclick="display(0)">0</button>
+            </div>
+            <div class="row5_col3 ">
+                <button type="button"class="input_buttons_1"onclick="display('/')">/</button>
+            </div>
+            <div class="row5_col4 ">
+                <button type="button"class="input_buttons_1"onclick="display('*')">*</button>
+            </div>
+            <div class="row6_col1_2 one ">
+                <button type="button"class="input_buttons_2">Reset</button>
+            </div>
+            <div class="row6_col2_4 two ">
+                <button type="button"  class="input_buttons_3"onclick="equate()">=</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+     const display = (displayparameter) => {
+        document.getElementById('displaybar').value += displayparameter;
+     }
+     const clear = () => {
+        var clr =  document.querySelectorAll('.one');
+        console.log(clr)
+        clr.forEach(item =>{
+            item.addEventListener('click',() =>{
+                document.getElementById('displaybar').value = ' ';
+            });
+        })
+     }
+     clear();
+    function equate (){
+     let x = document.getElementById('displaybar').value;
+     y = eval(x);
+     document.getElementById('displaybar').value = y
+    }   
+    const theme1 = () => {
+    document.querySelectorAll('.input_buttons_1').forEach(item =>{
+        item.style.backgroundColor = "  hsl(281, 89%, 26%)"
+                item.style.color = "hsl(52, 100%, 62%)"
+                item.style.boxShadow = " 1px 3px hsl(285, 91%, 52%)"
+    })
+    document.querySelectorAll('.input_buttons_2').forEach(item1 => {
+                item1.style.backgroundColor = " hsl(268, 47%, 21%)"
+                item1.style.boxShadow = " 1px 3px  hsl(290, 70%, 36%)"
+            });
+            document.querySelectorAll('.displaybar2').forEach(item2 => {
+                item2.style.backgroundColor = "hsl(268, 71%, 12%)";
+                item2.style.color = "hsl(52, 100%, 62%)";
+            });
+            document.querySelectorAll('.header1').forEach(item3 => {
+                item3.style.color = "hsl(52, 100%, 62%)";});
+               
+                document.querySelectorAll('.body').forEach(item4 => {
+                    item4.style.backgroundColor = "hsl(268, 75%, 9%)";
+                })
+                document.querySelectorAll('.input_buttons').forEach(item4 => {
+                    item4.style.backgroundColor = "hsl(268, 71%, 12%)";
+                })
+                document.querySelectorAll('.input_buttons_3').forEach(item5 => {
+                    item5.style.backgroundColor = "hsl(176, 100%, 44%)";
+                    item5.style.boxShadow = " 1px 3px hsl(177, 92%, 70%)"
+                })
+
+            
+                    }
+   
+    let btn2 = document.querySelector('.button3');
+    btn2.addEventListener('click',theme1);
+    const theme2 = () => {
+    document.querySelectorAll('.input_buttons_1').forEach(item =>{
+        item.style.backgroundColor = " white"
+                item.style.color = "black"
+                item.style.boxShadow = " 1px 3px whitesmoke"
+    })
+    document.querySelectorAll('.input_buttons_2').forEach(item1 => {
+                item1.style.backgroundColor = " hsl(185, 42%, 37%)"
+                item1.style.boxShadow = " hsl(185, 58%, 25%)"
+            });
+            document.querySelectorAll('.displaybar2').forEach(item2 => {
+                item2.style.backgroundColor = "hsl(0, 5%, 81%)";
+                item2.style.color = "black";
+            });
+            document.querySelectorAll('.header1').forEach(item3 => {
+                item3.style.color = "black";});
+               
+                document.querySelectorAll('.body').forEach(item4 => {
+                    item4.style.backgroundColor = " hsl(0, 0%, 90%)";
+                })
+                document.querySelectorAll('.input_buttons').forEach(item4 => {
+                    item4.style.backgroundColor = "hsl(0, 5%, 81%)";
+                })
+                document.querySelectorAll('.input_buttons_3').forEach(item5 => {
+                    item5.style.backgroundColor = "red";
+                    item5.style.boxShadow = " 1px 3px hsl(177, 92%, 70%)"
+                })
+
+            
+                    }
+   
+    let btn3 = document.querySelector('.button2');
+    btn3.addEventListener('click',theme2);
+    const theme3 = () => {
+    document.querySelectorAll('.input_buttons_1').forEach(item =>{
+        item.style.backgroundColor = " white"
+                item.style.color = "black"
+                item.style.boxShadow = " 1px 3px whitesmoke"
+    })
+    document.querySelectorAll('.input_buttons_2').forEach(item1 => {
+                item1.style.backgroundColor = " hsl(225, 21%, 49%)"
+                item1.style.boxShadow = " hsl(224, 28%, 35%)"
+            });
+            document.querySelectorAll('.displaybar2').forEach(item2 => {
+                item2.style.backgroundColor = "hsl(224, 36%, 15%)";
+                item2.style.color = "white";
+            });
+            document.querySelectorAll('.header1').forEach(item3 => {
+                item3.style.color = "white";});
+               
+                document.querySelectorAll('.body').forEach(item4 => {
+                    item4.style.backgroundColor = " hsl(222, 26%, 31%)";
+                })
+                document.querySelectorAll('.input_buttons').forEach(item4 => {
+                    item4.style.backgroundColor = "hsl(223, 31%, 20%)";
+                })
+                document.querySelectorAll('.input_buttons_3').forEach(item5 => {
+                    item5.style.backgroundColor = "hsl(6, 63%, 50%)";
+                    item5.style.boxShadow = " 1px 3px hsl(6, 70%, 34%)"
+                })
+
+            
+                    }
+   
+    let btn4 = document.querySelector('.button1');
+    btn4.addEventListener('click',theme3);
+     rangebar = () => {
+
+var z = document.querySelector(".last_one").value;
+if (z == 2) {
+    theme2();
+}
+else if (z == 3) {
+    theme1()
+        ;
+}
+else {
+    theme3();
+}
+
+}
+
+    
+   
+
+   
+</script>
+</body>
+
+</html>
